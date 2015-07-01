@@ -1,0 +1,29 @@
+-	persistence layer deals with all of the logic related to data access (CRUD)
+-	presentation layer deals with all of the activities related to the web request and view 
+-	domain layer contains classes to hold information that is retrieved from database records / the persistence layer
+-	The service layer exposes business operations that could be composed of multiple CRUD operations
+
+	
+		persistence layer		@Repisotory
+		-----------------
+
+-	Logically speaking, data retrieval is not the duty of the controller because the controller is a presentation layer
+component. 
+
+-	data retrieval code in a separate layer - persistence layer. A persistence layer usually contains repository objects to access
+domain objects. Since we don't want to write all of the data retrieval logic inside ProductController
+itself, we delegated this task to another class called InMemoryProductRepository. 
+
+
+-	Nowhere could we see a single line saying something like productRepository = new InMemoryProductRepository(). So we just 
+put the line as 
+		@Autowired
+		private ProductRepository productRepository;
+As soon as Spring sees the @Autowired annotation on top of the ProductRepository
+reference, it assigns the object of InMemoryProductRepository to this reference since
+Spring already created and holds the InMemoryProductRepository object in its object
+container (the web application context). (pg 57)
+
+
+		SERVICE LAYER		@Service
+		--------------

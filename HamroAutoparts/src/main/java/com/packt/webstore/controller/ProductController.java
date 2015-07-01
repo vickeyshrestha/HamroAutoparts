@@ -1,25 +1,23 @@
 package com.packt.webstore.controller;
 
-import java.math.BigDecimal;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.packt.webstore.domain.Product;
+import com.packt.webstore.domain.repository.ProductRepository;
 
 @Controller
 public class ProductController {
 	
+	//we connect controller and repository through the ProductRepository interface reference to maximize loose coupling
+	@Autowired	
+	private ProductRepository productRepository;
+	
 	@RequestMapping("/products")
 	public String list (Model model){
-		Product steering = new Product("P1234" , "Honda Steering", new BigDecimal(500));
-		steering.setDescription("This third party steering fits on Honda Accord 1995-2000");
-		steering.setCategory("Sterring Accessories");
-		steering.setManufacturer("Nexus Pvt Ltd");
-		steering.setUnitsInStock(450);
 		
-		model.addAttribute("product", steering);
+		model.addAttribute("products", productRepository.getAllProducts());
 		
 		return "products";
 	}
