@@ -1,11 +1,15 @@
 -	persistence layer deals with all of the logic related to data access (CRUD)
+
 -	presentation layer deals with all of the activities related to the web request and view 
--	domain layer contains classes to hold information that is retrieved from database records / the persistence layer
+
+-	domain layer (Model Layer) contains classes to hold information that is retrieved 
+	from database records / the persistence layer
+	
 -	The service layer exposes business operations that could be composed of multiple CRUD operations
 
 	
 		persistence layer		@Repisotory
-		-----------------
+		-----------------		-------------
 
 -	Logically speaking, data retrieval is not the duty of the controller because the controller is a presentation layer
 component. 
@@ -25,5 +29,12 @@ Spring already created and holds the InMemoryProductRepository object in its obj
 container (the web application context). (pg 57)
 
 
-		SERVICE LAYER		@Service
-		--------------
+BINDING VARIABLES in HTTP request
+-----------------------------------
+-	Matrix variables and path variables
+-	GET parameters have
+	been used for years as a standard way to bind variables in the URL, and POST parameters are
+	used to bind variables in the body of the HTTP request
+	
+
+-	"product?id=P1234" in URL response to "@RequestParam("id") String productId" in controller (p85)
