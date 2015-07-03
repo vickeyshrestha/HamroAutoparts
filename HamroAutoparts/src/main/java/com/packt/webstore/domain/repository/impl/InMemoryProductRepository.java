@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.domain.repository.ProductRepository;
+import com.packt.webstore.exception.ProductNotFoundException;
 
 @Repository
 public class InMemoryProductRepository implements ProductRepository{
@@ -36,9 +37,16 @@ public class InMemoryProductRepository implements ProductRepository{
 		battery.setManufacturer("Petboys");
 		battery.setUnitsInStock(150);
 		
+		Product headlight = new Product("P1237", "Infiniti HID Headlights", new BigDecimal(450));
+		headlight.setDescription("This headlight compiles with Nissan Infiniti YZ6 year 200-2003 ");
+		headlight.setCategory("Headlight");
+		headlight.setManufacturer("Nissan");
+		headlight.setUnitsInStock(15);
+		
 		listOfProducts.add(steering);
 		listOfProducts.add(transmission);
 		listOfProducts.add(battery);
+		listOfProducts.add(headlight);
 	}
 
 	
@@ -58,7 +66,7 @@ public class InMemoryProductRepository implements ProductRepository{
 		}
 		
 		if (productById==null){
-			throw new IllegalArgumentException("No such product found "+ productId);
+			throw new ProductNotFoundException(productId);
 		}
 		return productById;
 	}

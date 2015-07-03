@@ -1,0 +1,38 @@
+					CHAPTER 5
+					==========
+	UPLOADING FILES
+	===============
+	
+-	The controller knows nothing about view except the view name (i.e. file Name).
+	It is the responsibility of the view resolver to map the correct view for the given view name.
+	
+-	For uploading files you need two dependencies as shown in POM.xml. Also you need to add private 
+				MultipartFile productImage
+	in the domain file.
+	
+	
+-	You need enctype="multipart/form-data" in form if you are using file upload, else you dont.
+-	On controller also add HttpServletRequest
+
+
+		ContentNegotiatingViewResolver	(pg.134)
+		===============================
+-	ContentNegotiatingViewResolver does not resolve views itself but delegates them to
+	other view resolvers based on the request
+	
+	try products/product?id=P1234 and products/product.xml?id=P1234 difference------------See XML
+	
+	http://localhost:8080/HamroAutoparts/products/product.json?id=P1234------------See JSON
+	
+	
+	
+	
+						FEW DESCRIPTIONS
+						==================
+-	NoProductsFoundUnderCategoryException.java
+		This class display error at runtime as 404
+		
+-	ProductNotFoundException
+		This one shows error in page itself
+		It is associated with ProductNotFoundException.java, getProductbyId method in InMemoryre....., 
+		handleError method in ProductController, and productNotFound.jsp

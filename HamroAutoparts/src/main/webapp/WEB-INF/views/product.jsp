@@ -6,20 +6,27 @@
 charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Products</title>
+<title>Product</title>
 </head>
 <body>
 	<section>
 		<div class="jumbotron">
 			<div class="container">
-				<h1>Products</h1>
+				<h1>Product</h1>
+				<h3 style="color: red;">${product.name}</h2>
 			</div>
 		</div>
 	</section>
 	<section class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<h3>${product.name}</h3>
+				<img src="	
+						<c:url value="/resource/images/${product.productId}.png"></c:url>"	
+						alt="image" style = "width:100%"/>
+			</div>
+			
+			<div class="col-md-5">
+				<h3>Name: ${product.name}</h3>
 				<p>${product.description}</p>
 				<p>
 					<strong>Item Code : </strong><span class="label label-warning">${product.productId}</span>
@@ -33,7 +40,7 @@ charset=ISO-8859-1">
 				<p>
 					<strong>Availble units in stock </strong> : ${product.unitsInStock}
 				</p>
-				<h4>${product.unitPrice}USD</h4>
+				<h4>$${product.unitPrice} USD</h4>
 				<p>
 					<a href="<spring:url value="/products" />" class="btn btndefault">
 						<span class="glyphicon-hand-left glyphicon"></span> back

@@ -2,6 +2,13 @@ package com.packt.webstore.domain;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.springframework.web.multipart.MultipartFile;
+
+@XmlRootElement
 public class Product {
 	private String productId;
 	private String name;
@@ -13,6 +20,18 @@ public class Product {
 	private long unitsInOrder;
 	private boolean discontinued;
 	private String condition;
+	
+	@JsonIgnore
+	private MultipartFile productImage;
+
+	@XmlTransient
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
 
 	public Product() {
 		super();

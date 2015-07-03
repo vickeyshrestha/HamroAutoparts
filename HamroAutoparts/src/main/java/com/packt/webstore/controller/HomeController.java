@@ -13,4 +13,9 @@ public class HomeController {
 		model.addAttribute("tagline", "Your destination for Japanese and American Autoparts");
 		return "welcome";
 	}
+	
+	@RequestMapping("/welcome/greeting")
+		public String greeting() {
+		return "welcome";
+	}
 }
