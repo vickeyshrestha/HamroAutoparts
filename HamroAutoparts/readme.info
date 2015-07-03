@@ -29,8 +29,8 @@ Spring already created and holds the InMemoryProductRepository object in its obj
 container (the web application context). (pg 57)
 
 
-BINDING VARIABLES in HTTP request
------------------------------------
+					BINDING VARIABLES in HTTP request
+					-----------------------------------
 -	Matrix variables and path variables
 -	GET parameters have
 	been used for years as a standard way to bind variables in the URL, and POST parameters are
@@ -38,3 +38,54 @@ BINDING VARIABLES in HTTP request
 	
 
 -	"product?id=P1234" in URL response to "@RequestParam("id") String productId" in controller (p85)
+
+
+
+
+				Working with Spring Tag Libraries
+				=================================
+-	Working with spring tabs in JSP: <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+-	Serving and processing forms: - <%@taglib prefix="form" uri= "http://www.springframework.org/tags/form" %>
+
+		@RequestMapping(value = "/add", method = RequestMethod.GET) 
+		public String getAddNewProductForm(Model model) {
+		
+		}
+		
+		
+		@RequestMapping(value = "/add", method = RequestMethod.POST)
+		public String processAddNewProductForm( @ModelAttribute("newProduct") Product newProduct) {
+		
+		}
+		
+
+- WORKING with FORMS? This is how we design for Spring:
+	<form:form modelAttribute="newProduct" class="form-horizontal">
+	
+	</form:form>
+	
+	
+-	The WebDataBinder object extracts the data out of the HttpServletRequest object,
+	converts it to a proper data format, loads it into a form-backing bean, and validates
+	it. To customize the behavior of the data binding, we can initialize and configure
+	the WebDataBinder object in our controller. 
+	The process of explicitly specifying the allowed fields for form binding is called 
+	whitelisting form fields in Spring MVC; we can do whitelisting using WebDataBinder.
+	
+-	In form, we can either type the LABELS straight or import from message.properties. 
+	For this we have to add a <bean id= "messageSource"> part in dispatcher servlet
+	
+	
+						SPRING SECURITY TAGS	-add basic authentication to our web pages
+					======================================================================
+-	Must add dependencies - spring-security-config, spring-security-web. On dependency heirarchy tab,
+	We just right-click on the entry with the name springasm:3.0.7.RELEASE[compile] 
+	from the Resolved Dependencies list and choose the Exclude Maven Artifact… option
+
+-	Create LoginController.java
+-	Design login.jsp
+-	Now we add logout button in addProduct.jsp as:
+			<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>	
+-	we create one more bean configuration file called security-context.xml
+-	Add few things into web.xml (Refer to pg. 112 - point 12)
