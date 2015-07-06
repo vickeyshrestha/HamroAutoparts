@@ -12,6 +12,9 @@
 		<div class="jumbotron">
 			<div class="container">
 			<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>
+			<div class="pull-right" style="padding-right:50px">
+				<a href="?language=en" >English</a>|<a href="?language=nl">Dutch</a>
+			</div>
 				<h1>Products</h1>
 				<p>Add products</p>
 			</div>
@@ -21,6 +24,7 @@
 	<section class="container">
 	<!-- ===================================START FORM=============================================================== -->
 		<form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
+		<form:errors path="*" cssClass="alert alert-danger"	element="div"/> 		<%-- For validation--%>
 			<fieldset>
 				<legend>Add new product</legend>
 				
@@ -32,6 +36,7 @@
 					</label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="productId" type="text" class="form:input-large"/>
+<%-- For validation--%>	<form:errors path="productId" cssClass="text-danger"/> 
 					</div>
 				</div>
 									
@@ -40,6 +45,7 @@
 					<label class="control-label col-lg-2 col-lg-2" for="name">Name</label>
 					<div class="col-lg-10">
 						<form:input id="name" path="name" type="text" class="form:input-large"/>
+						<form:errors path="name" cssClass="text-danger"/>
 					</div>
 				</div>
 				
@@ -47,6 +53,7 @@
 					<label class="control-label col-lg-2 col-lg-2" for="unitPrice">Price</label>
 					<div class="col-lg-10">
 						<form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/>
+						<form:errors path="unitPrice" cssClass="text-danger"/>
 					</div>
 				</div>
 				
@@ -54,6 +61,7 @@
 					<label class="control-label col-lg-2 col-lg-2" for="manufacturer">Manufacturer</label>
 					<div class="col-lg-10">
 						<form:input id="manufacturer" path="manufacturer" type="text" class="form:input-large"/>
+						<form:errors path="manufacturer" cssClass="text-danger"/>
 					</div>
 				</div>
 				

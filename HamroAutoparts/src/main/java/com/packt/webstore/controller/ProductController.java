@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -76,7 +77,10 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(	@ModelAttribute("newProduct") Product productToBeAdded, BindingResult result, HttpServletRequest request) {
+	public String processAddNewProductForm(	@ModelAttribute("newProduct") @Valid Product productToBeAdded, BindingResult result, HttpServletRequest request) {
+		if(result.hasErrors()) {
+			return "addProduct";
+		}
 		String [] suppressedFields = result.getSuppressedFields();
 		if(suppressedFields.length > 0){
 			throw new RuntimeException("Attempting to bind disallowed fields " +StringUtils.arrayToCommaDelimitedString(suppressedFields));
@@ -98,7 +102,7 @@ public class ProductController {
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder){
 		binder.setDisallowedFields("unitsInOrder","discontinued");
-		binder.setAllowedFields("productId","name","unitPrice","description","manufacturer","category","unitsInStock", "productImage", "condition");
+		binder.setAllowedFields("productId","name","unitPrice","description","manufacturer","category","unitsInStock", "productImage", "condition", "language");
 	}
 	
 	
@@ -114,4 +118,9 @@ public class ProductController {
 		return mav;
 	}
 	
+	@RequestMapping("/invalidPromoCode")
+	public String invalidPromoCode() {
+		return "invalidPromoCode";
+	}
+		
 }

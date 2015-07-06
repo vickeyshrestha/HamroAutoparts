@@ -9,7 +9,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String welcome(Model model){
-		model.addAttribute("greeting", "Welcome to Hamro Autoparts");
+		model.addAttribute("greeting", "Hamro Autoparts");
 		model.addAttribute("tagline", "Your destination for Japanese and American Autoparts");
 		return "welcome";
 	}

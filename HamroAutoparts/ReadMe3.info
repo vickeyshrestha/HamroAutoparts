@@ -1,0 +1,81 @@
+											CHAPTER 6	Interceptor
+											========================
+Interceptors are used to intercept actual web requests before or after they are processed.
+The HandlerInterceptor interface defines three important methods, as follows:
+ 		preHandle: This method gets called just before the web request reaches the
+					controller method to be executed
+ 		postHandle: This method will get called just after the execution of the controller
+					method
+ 		afterCompletion: This method will get called after the completion of the entire
+					web request cycle
+					
+				LOG4J
+				=====
+- Import dependencies
+- create class PerformanceMonitorInterceptor
+- added  <mvc:interceptors> part in dispatcher servlet
+- created properties file log4j.properties
+- open C:\webstore-performance.log to see log messages
+
+
+International language	p.155
+=======================
+- create messages_nl.properties
+- added link options into page
+- added configuration in dispatcher servlet a reg bean and one more additional bean in <mvc:interceptors> section
+
+
+Audit Logging
+===============
+Audit logging means maintaining a log record to show who had accessed a computer
+system and what operations they had performed.
+-	We will create AuditingInterceptor.java
+-	We will add one more bean Auditing Interceptor inside <mvc:interceptors>
+- 	We add few properties at the bottom of log4j.properties
+
+
+Interception offer pages
+========================
+It is a promo page
+-	Created PromoCodeInterceptor.java	-a domain class with one boolean method, preHandle
+-	Added one more <mvc:interceptors> in dispatcher servlet
+-	Add one more method invalidPromoCode() in ProductControler class
+-	Created invalidPromoCode.jsp
+
+
+
+
+			Chapter 7 -- Validate Your Products with a Validator
+			=====================================================
+-	Java bean validation (JSR-303):- express validation constraints on objects via annotations.
+
+ adding bean validation support
+ ===============================
+ -	Add hibernate-validator dependencies on pom.
+ -	@Pattern annotation on top of ProductID field on domain class, similarly other anootations on other field
+ -	Now write the custom messages on message.properties file
+ -	On product controller class at processAddNewProductForm method, we add @Valid and following in first line
+ 				if(result.hasErrors()) {
+					return "addProduct";
+				}
+-	add <form:errors> tags in addproduct.jsp
+-	also add LocalValidatorFactoryBean in dispacther servlet
+-	assign the validator property value to the <mvc:annotation-driven>
+
+
+adding custom validation support on JSR-303
+============================================
+-	create annotation interface called ProductId.java under com.packt.webstore.validator
+-	Now we will create ProductIdValidator.class
+-	Add custom message in messages.properties
+
+
+adding spring validation
+=========================
+Like JSR, spring also has its own validation. The JSR-303 bean validation is much more elegant, expressive,
+and, in general, simpler to use compared to the classic Spring validation.
+
+-	We will only demonstrate for Units in stock. If you have a constraint that doesn't allow anyone to add 
+more than 99 units of any product if the unit price is greater than 1000 USD for that product
+-	
+ 

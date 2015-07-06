@@ -76,9 +76,27 @@
 			<version>2.2.12</version>
 		</dependency>
 
-		
-		
+
+<!-- ===================log4j=========================== -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.12</version>
+		</dependency>
+<!-- ===================END log4j=========================== -->
+
+
+<!-- For JSR 303 validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.3.1.Final</version>
+		</dependency>
+<!-- End of  JSR 303 validation-->
+
+
 	</dependencies>
+	
 
 
 	
