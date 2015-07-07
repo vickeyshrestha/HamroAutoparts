@@ -30,6 +30,7 @@ import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
 
+
 @Controller
 @RequestMapping("/products")
 public class ProductController {
@@ -37,6 +38,8 @@ public class ProductController {
 	//we connect controller and repository through the ProductRepository interface reference to maximize loose coupling
 	@Autowired	
 	private ProductService productService;
+	
+
 	
 	@RequestMapping
 	public String allProducts (Model model){

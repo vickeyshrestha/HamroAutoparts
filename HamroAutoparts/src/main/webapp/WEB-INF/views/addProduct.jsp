@@ -10,16 +10,19 @@
 <body>
 	<section>
 		<div class="jumbotron">
-			<div class="container">
+			<div class="alert alert-info">
 			<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>
 			<div class="pull-right" style="padding-right:50px">
-				<a href="?language=en" >English</a>|<a href="?language=nl">Dutch</a>
+				<a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
 			</div>
 				<h1>Products</h1>
 				<p>Add products</p>
+				<p id="demo"></p>
 			</div>
 		</div>
 	</section>
+	
+
 	
 	<section class="container">
 	<!-- ===================================START FORM=============================================================== -->
@@ -42,7 +45,9 @@
 									
 					
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="name">Name</label>
+					<label class="control-label col-lg-2 col-lg-2" for="name">
+<!-- Label NAME-->		<spring:message code="addProduct.form.name.label"/>	
+					</label>
 					<div class="col-lg-10">
 						<form:input id="name" path="name" type="text" class="form:input-large"/>
 						<form:errors path="name" cssClass="text-danger"/>
@@ -50,7 +55,9 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="unitPrice">Price</label>
+					<label class="control-label col-lg-2 col-lg-2" for="unitPrice">
+<!-- Label unitPrice-->		<spring:message code="addProduct.form.unitPrice.label"/>	
+					</label>
 					<div class="col-lg-10">
 						<form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/>
 						<form:errors path="unitPrice" cssClass="text-danger"/>
@@ -58,7 +65,9 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="manufacturer">Manufacturer</label>
+					<label class="control-label col-lg-2 col-lg-2" for="manufacturer">
+<!-- Label manufacturer-->		<spring:message code="addProduct.form.manufacturer.label"/>					
+					</label>
 					<div class="col-lg-10">
 						<form:input id="manufacturer" path="manufacturer" type="text" class="form:input-large"/>
 						<form:errors path="manufacturer" cssClass="text-danger"/>
@@ -66,14 +75,18 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="category">Category</label>
+					<label class="control-label col-lg-2 col-lg-2" for="category">
+<!-- Label category-->		<spring:message code="addProduct.form.category.label"/>	
+					</label>
 					<div class="col-lg-10">
 						<form:input id="category" path="category" type="text" class="form:input-large"/>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="unitsInStock">In Stock</label>
+					<label class="control-label col-lg-2 col-lg-2" for="unitsInStock">
+<!-- Label unitsInStock-->		<spring:message code="addProduct.form.unitsInStock.label"/>	
+					</label>
 					<div class="col-lg-10">
 						<form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/>
 					</div>
@@ -81,7 +94,9 @@
 				
 					
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="description">Description</label>
+					<label class="control-label col-lg-2" for="description">
+<!-- Label description-->		<spring:message code="addProduct.form.description.label"/>	
+					</label>
 					<div class="col-lg-10">
 						<form:textarea id="description" path="description" rows = "2"/>
 					</div>
@@ -89,7 +104,9 @@
 				
 						
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="condition">Condition</label>
+					<label class="control-label col-lg-2" for="condition">
+<!-- Label condition-->		<spring:message code="addProduct.form.condition.label"/>	
+					</label>
 					<div class="col-lg-10">
 						<form:radiobutton path="condition" value="New" />New
 						<form:radiobutton path="condition" value="Old" />Old
@@ -100,7 +117,7 @@
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="productImage">
-						<spring:message code="addProdcut.form.productImage.label"/>
+<!--  Label image -->		<spring:message code="addProdcut.form.productImage.label"/>
 					</label>
 					<div class="col-lg-10">
 						<form:input id="productImage" path="productImage" type="file" class="form:input-large" />

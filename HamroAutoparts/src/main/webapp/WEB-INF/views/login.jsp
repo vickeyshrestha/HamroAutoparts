@@ -20,7 +20,7 @@
 		
 		<div class="container">
 			<div class="row" ng-app="">
-				<h3 align="center" style="color: blue;">Entering as: <strong>{{j_username}}</strong></h3><br>
+				<div class="alert alert-danger"><h3 align="center" style="color: blue;">Entering as<br> <strong><font face="verdana" color="green">{{j_username}}</font></strong></h3></div><br>
 				<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">

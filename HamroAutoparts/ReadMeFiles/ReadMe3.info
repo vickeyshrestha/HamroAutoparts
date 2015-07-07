@@ -21,8 +21,8 @@ The HandlerInterceptor interface defines three important methods, as follows:
 International language	p.155
 =======================
 - create messages_nl.properties
-- added link options into page
-- added configuration in dispatcher servlet a reg bean and one more additional bean in <mvc:interceptors> section
+- added link options into frontview page
+- added configuration in dispatcher servlet, a reg bean and one more additional bean in <mvc:interceptors> section
 
 
 Audit Logging
@@ -75,7 +75,5 @@ adding spring validation
 Like JSR, spring also has its own validation. The JSR-303 bean validation is much more elegant, expressive,
 and, in general, simpler to use compared to the classic Spring validation.
 
--	We will only demonstrate for Units in stock. If you have a constraint that doesn't allow anyone to add 
-more than 99 units of any product if the unit price is greater than 1000 USD for that product
--	
+SEE page 182, we have not included this
  
