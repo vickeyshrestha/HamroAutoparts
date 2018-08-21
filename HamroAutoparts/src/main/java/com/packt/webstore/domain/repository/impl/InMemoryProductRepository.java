@@ -13,6 +13,10 @@ import com.packt.webstore.domain.Product;
 import com.packt.webstore.domain.repository.ProductRepository;
 import com.packt.webstore.exception.ProductNotFoundException;
 
+/*
+ * 	I am still waiting for a super guy to provide me a REST interface for all products rather thank hardcoding these. Anyone please?
+ */
+
 @Repository
 public class InMemoryProductRepository implements ProductRepository{
 
