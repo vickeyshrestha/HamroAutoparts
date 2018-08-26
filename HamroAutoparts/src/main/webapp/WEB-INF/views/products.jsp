@@ -8,12 +8,14 @@
 <link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <title>Products</title>
 </head>
-<body>
+<body>	
 	<section>
 		<div class="jumbotron">
-			<div class="container">
+			<div class="alert alert-info">
+			<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>
 				<h1>Auto Products</h1>
-				<p>All the available products in our store</p>
+				<p>All available products</p>
+				<p id="demo"></p>
 			</div>
 		</div>
 	</section>
