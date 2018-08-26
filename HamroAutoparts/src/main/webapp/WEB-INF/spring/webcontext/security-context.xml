@@ -16,7 +16,8 @@
 	<!-- Setting up the pages -->					
 	<security:http auto-config="true">
 		<security:intercept-url pattern="/products/add" access="ROLE_ADMIN" />
-		<security:form-login login-page="/login" default-target-url="/products/add"	authentication-failure-url="/loginfailed"/>
+		<security:intercept-url pattern="/products" access="ROLE_ADMIN" />
+		<security:form-login login-page="/login" default-target-url="/products"	authentication-failure-url="/loginfailed"/>
 		<security:logout logout-success-url="/logout" />
 	</security:http>
 	
