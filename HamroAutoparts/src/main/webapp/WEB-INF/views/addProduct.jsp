@@ -15,12 +15,22 @@
 			<div class="pull-right" style="padding-right:50px">
 				<a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
 			</div>
-				<h1>Products</h1>
+				<h1>Auto Products</h1>
 				<p>Add products</p>
 				<p id="demo"></p>
 			</div>
 		</div>
 	</section>
+	
+	<form:form method = "GET" action = "/HamroAutoparts/products">
+         <table>
+            <tr>
+               <td>
+                  <input type = "submit" value = "View current products"/>
+               </td>
+            </tr>
+         </table>  
+      </form:form>
 	
 
 	

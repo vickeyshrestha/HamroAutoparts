@@ -19,6 +19,16 @@
 			</div>
 		</div>
 	</section>
+	
+	<form:form method = "GET" action = "/HamroAutoparts/products/add">
+         <table>
+            <tr>
+               <td>
+                  <input type = "submit" value = "Add Product"/>
+               </td>
+            </tr>
+         </table>  
+      </form:form>
 
 	<section class="container">
 		<div class="row">
