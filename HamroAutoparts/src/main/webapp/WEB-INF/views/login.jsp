@@ -17,6 +17,16 @@
 			</div>
 		</section>
 		
+		<form:form method = "GET" action = "/HamroAutoparts">
+         <table>
+            <tr>
+               <td>
+                  <input type = "submit" value = "Welcome Page"/>
+               </td>
+            </tr>
+         </table>  
+      </form:form>
+		
 		<div class="container">
 			<div class="row" ng-app="">
 				<div class="alert alert-danger"><h3 align="center" style="color: blue;">Entering as<br> <strong><font face="verdana" color="green">{{j_username}}</font></strong></h3></div><br>
